@@ -1,0 +1,1 @@
+ALTER TABLE `designs` ADD `swatch_hex` text DEFAULT '#f08aa3' NOT NULL;

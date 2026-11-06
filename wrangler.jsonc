@@ -1,0 +1,45 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"main": ".open-next/worker.js",
+	"name": "bloom-nail-studio",
+	"compatibility_date": "2026-11-04",
+	"compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+	"assets": {
+		"directory": ".open-next/assets",
+		"binding": "ASSETS"
+	},
+	"services": [
+		{
+			// Self-reference service binding, the service name must match the worker name
+			// see https://opennext.js.org/cloudflare/caching
+			"binding": "WORKER_SELF_REFERENCE",
+			"service": "bloom-nail-studio"
+		}
+	],
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "bloom-nail-studio-db",
+			"database_id": "e4729d11-127c-4cdb-ac8c-e8b7a478a350",
+			"migrations_dir": "drizzle"
+		}
+	],
+	"r2_buckets": [
+		{
+			// App media: hand photos, try-on results, design photos, review photos
+			"binding": "MEDIA_BUCKET",
+			"bucket_name": "bloom-nail-studio-media"
+		},
+		{
+			// Use R2 incremental cache
+			// See https://opennext.js.org/cloudflare/caching
+			"binding": "NEXT_INC_CACHE_R2_BUCKET",
+			"bucket_name": "bloom-nail-studio-opennext-cache"
+		}
+	],
+	"images": {
+		// Enable image optimization
+		// see https://opennext.js.org/cloudflare/howtos/image
+		"binding": "IMAGES"
+	}
+}

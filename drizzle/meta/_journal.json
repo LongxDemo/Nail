@@ -1,0 +1,41 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1793892222553,
+      "tag": "0000_dry_tomorrow_man",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1793892943501,
+      "tag": "0001_concerned_sway",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1793895060142,
+      "tag": "0002_majestic_thunderbolt",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "6",
+      "when": 1793895776277,
+      "tag": "0003_previous_anthem",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "6",
+      "when": 1793896662816,
+      "tag": "0004_mean_solo",
+      "breakpoints": true
+    }
+  ]
+}
