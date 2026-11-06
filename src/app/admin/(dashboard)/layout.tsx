@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
-import { LayoutDashboard, CalendarRange, Images, Clock, Star, LogOut, Scissors } from "lucide-react";
+import { LayoutDashboard, CalendarRange, Images, Clock, Star, LogOut, Scissors, Users } from "lucide-react";
 import Link from "next/link";
 import { getCurrentAdmin } from "@/lib/auth/current-admin";
 import { logoutAction } from "@/app/admin/actions";
@@ -21,6 +21,8 @@ export default async function AdminDashboardLayout({
   const admin = await getCurrentAdmin();
   if (!admin) redirect("/admin/login");
 
+  const nav = admin.role === "owner" ? [...NAV, { href: "/admin/team", label: "Team", icon: Users }] : NAV;
+
   return (
     <div className="min-h-screen bg-background">
       <header className="sticky top-0 z-40 border-b border-border bg-surface">
@@ -37,7 +39,7 @@ export default async function AdminDashboardLayout({
           </form>
         </div>
         <nav className="mx-auto flex max-w-5xl gap-1 overflow-x-auto px-4 pb-2">
-          {NAV.map((item) => (
+          {nav.map((item) => (
             <Link
               key={item.href}
               href={item.href}
